@@ -1,3 +1,4 @@
+// Contadores 
 let contadorEjercicio1 = 0
 let contadorEjercicio2 = 0
 let contadorEjercicio3 = 0
@@ -7,11 +8,53 @@ let contadorEjercicio6 = 0
 
 let repetir = true
 
+//funciones
+
+//Funcion ordenar numeros
+function ordenarTresNumeros() {
+    let num1 = Number(prompt("Ingrese el primer numero"))
+    let num2 = Number(prompt("Ingrese el segundo numero"))
+    let num3 = Number(prompt("Ingrese el tercer numero"))
+
+    let menorAMayor = []
+    if (num1 <= num2 && num2 <= num3) {
+        menorAMayor = [num1, num2, num3];
+      } else if (num1 <= num3 && num3 <= num2) {
+        menorAMayor = [num1, num3, num2];
+      } else if(num2 <= num1 && num1 <= num3){
+        menorAMayor = [num2, num1, num3];
+      } else if(num2 <= num3 && num3 <= num1){
+        menorAMayor = [num2, num3, num1];
+      }else if(num3 <= num1 && num1 <= num2) {
+        menorAMayor = [num3, num1, num2];
+      }else {
+        menorAMayor = [num3, num2, num1];
+      }
+    let mayorAMenor
+    if (num1 >= num2 && num2 >= num3) {
+        mayorAMenor = [num1, num2, num3];
+      } else if (num1 >= num3 && num3 >= num2) {
+        mayorAMenor = [num1, num3, num2];
+      } else if(num2 >= num1 && num1 >= num3){
+        mayorAMenor = [num2, num1, num3];
+      } else if(num2 >= num3 && num3 >= num1){
+        mayorAMenor = [num2, num3, num1];
+      }else if(num3 >= num1 && num1 >= num2) {
+        mayorAMenor = [num3, num1, num2];
+      }else {
+        mayorAMenor = [num3, num2, num1];
+      }
+    console.log("orden de menor a mayor", menorAMayor);
+    console.log("orden de mayor a menor", mayorAMenor);
+}
+
+//Estructura del menu
 while (repetir) {
     const menu = Number(prompt("Ingrese la operacion a ejecutar:\n 1- Ordenar 3 numeros \n 2- Calcular area circunferencia \n 3- definir tipo de triangulo \n 4- encontrar numero amigo \n 5- encontrar valor de compra \n 6- calcular nota \n 7- salir"))
 
 switch (menu) {
     case 1:
+        ordenarTresNumeros()
         contadorEjercicio1++
         break;
     case 2:
@@ -39,4 +82,17 @@ switch (menu) {
 }
 }
 
+//Mensaje de cuantas veces se ejecuto cada ejercicio
 console.log(" El ejercicio 1 se ejecuto ",contadorEjercicio1," veces."," \n El ejercicio 2 se ejecuto ",contadorEjercicio2," veces."," \n El ejercicio 3 se ejecuto ",contadorEjercicio3," veces."," \n El ejercicio 4 se ejecuto ",contadorEjercicio4," veces."," \n El ejercicio 5 se ejecuto ",contadorEjercicio5," veces."," \n El ejercicio 6 se ejecuto ",contadorEjercicio6," veces." );
+
+//mayor y menor ejercicio ejecutado
+const contador = [contadorEjercicio1, contadorEjercicio2, contadorEjercicio3, contadorEjercicio4, contadorEjercicio5, contadorEjercicio6];
+
+const indiceMaximo = contador.indexOf(Math.max(...contador));
+const ejercicioMasVeces = `Ejercicio ${indiceMaximo + 1}`;
+
+const indiceMinimo = contador.indexOf(Math.min(...contador));
+const ejercicioMenosVeces = `Ejercicio ${indiceMinimo + 1}`;
+
+console.log("El ejercicio que mas veces se ejecuto es",ejercicioMasVeces);
+console.log("El ejercicio que menos veces se ejecuto es",ejercicioMenosVeces);
