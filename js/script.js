@@ -71,6 +71,40 @@ function tipoTriangulo() {
     }
 }
 
+//numero amigo
+function obtenerDivisores(numero) {
+    let divisores = [];
+    for (let i=1; i < numero; i++) {
+      if (numero % i === 0) {
+        divisores[divisores.length] = i;
+      }
+    }
+    return divisores;
+  }
+
+function sumarDivisores(divisores) {
+    let suma = 0;
+    for (let i = 0; i < divisores.length; i++) {
+        suma += divisores[i];
+    }
+    return suma;
+}
+
+function numeroAmigo(numero1, numero2) {
+    let divisoresNumero1 = obtenerDivisores(numero1);
+    let divisoresNumero2 = obtenerDivisores(numero2);
+
+    let sumaDivisoresNumero1 = sumarDivisores(divisoresNumero1);
+    let sumaDivisoresNumero2 = sumarDivisores(divisoresNumero2);
+    
+    if (sumaDivisoresNumero1 === numero2 && sumaDivisoresNumero2 === numero1) {
+        console.log(numero1,"y",numero2,"son numeros amigos");
+        } else {
+        console.log(numero1,"y",numero2,"no son numeros amigos");
+        }
+    console.log(divisoresNumero1,divisoresNumero2,sumaDivisoresNumero1,sumaDivisoresNumero2);
+}
+
 //Estructura del menu
 while (repetir) {
     const menu = Number(prompt("Ingrese la operacion a ejecutar:\n 1- Ordenar 3 numeros \n 2- Calcular area circunferencia \n 3- definir tipo de triangulo \n 4- encontrar numero amigo \n 5- encontrar valor de compra \n 6- calcular nota \n 7- salir"))
@@ -89,6 +123,9 @@ switch (menu) {
         contadorEjercicio3++
         break;
     case 4:
+        let numero1 = Number(prompt("Ingrese el primer número:"));
+        let numero2 = Number(prompt("Ingrese el segundo número:"));
+        numeroAmigo(numero1, numero2)
         contadorEjercicio4++
         break;
     case 5:
