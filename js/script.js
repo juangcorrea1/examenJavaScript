@@ -48,6 +48,14 @@ function ordenarTresNumeros() {
     console.log("orden de mayor a menor", mayorAMenor);
 }
 
+//Area circunferencia
+
+function areaCircunferencia() {
+    let radio = Number(prompt("ingrese el radio de la circunferencia"))
+    let area = Math.PI * (radio*radio)
+    console.log("el area de la circunferencia con radio ",radio, "es de: ",area);
+}
+
 //Estructura del menu
 while (repetir) {
     const menu = Number(prompt("Ingrese la operacion a ejecutar:\n 1- Ordenar 3 numeros \n 2- Calcular area circunferencia \n 3- definir tipo de triangulo \n 4- encontrar numero amigo \n 5- encontrar valor de compra \n 6- calcular nota \n 7- salir"))
@@ -58,6 +66,7 @@ switch (menu) {
         contadorEjercicio1++
         break;
     case 2:
+        areaCircunferencia()
         contadorEjercicio2++
         break;
     case 3:
