@@ -56,6 +56,21 @@ function areaCircunferencia() {
     console.log("el area de la circunferencia con radio ",radio, "es de: ",area);
 }
 
+//Tipo de triangulo 
+
+function tipoTriangulo() {
+    let lado1 = Number(prompt("Ingrese el primer lado"))
+    let lado2 = Number(prompt("Ingrese el segundo lado"))
+    let lado3 = Number(prompt("Ingrese el tercer lado"))
+    if (lado1 === lado2 && lado2=== lado3) {
+        console.log("el triangulo es equilatero");
+    }else if(lado1===lado2 || lado2===lado3 || lado3===lado1){
+        console.log("el triangulo es isosceles");
+    }else{
+        console.log("el triangulo es escaleno");
+    }
+}
+
 //Estructura del menu
 while (repetir) {
     const menu = Number(prompt("Ingrese la operacion a ejecutar:\n 1- Ordenar 3 numeros \n 2- Calcular area circunferencia \n 3- definir tipo de triangulo \n 4- encontrar numero amigo \n 5- encontrar valor de compra \n 6- calcular nota \n 7- salir"))
@@ -70,6 +85,7 @@ switch (menu) {
         contadorEjercicio2++
         break;
     case 3:
+        tipoTriangulo()
         contadorEjercicio3++
         break;
     case 4:
