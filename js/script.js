@@ -132,6 +132,45 @@ function compras() {
   }  
 }
 
+//Notas
+
+function validarNotas() {
+  let notas = []
+  let sumaNotas = 0
+
+  for (let i = 0; i < 4; i++) {
+    let nota = Number(prompt("Ingrese la nota", (i + 1)));
+
+    while (nota < 0 || nota > 5) {
+      nota = parseFloat(prompt("La nota", (i + 1), "debe estar entre 0 y 5. Ingrese nuevamente: "));
+    }
+
+    notas[i] = nota;
+    sumaNotas += nota;
+  }
+
+  if (notas[3] === 5) {
+    for (let i = 0; i < 3; i++) {
+      if (notas[i] <= 4) {
+        notas[i] += 1;
+        sumaNotas += 1;
+      }
+    }
+  }
+  const notaFinal = (notas[0] * 0.1) + (notas[1] * 0.2) + (notas[2] * 0.3) + (notas[3] * 0.4);
+
+  console.log("Promedio de cada nota:");
+  console.log("Nota 1:", (notas[0] * 0.1));
+  console.log("Nota 2:", (notas[1] * 0.2));
+  console.log("Nota 3:", (notas[2] * 0.3));
+  console.log("Nota 4:", (notas[3] * 0.4));
+
+  if (notaFinal > 3.5) {
+    console.log("El estudiante ganó porque su nota final es:", notaFinal);
+  } else {
+    console.log("El estudiante perdió porque su nota final es:", notaFinal);
+  }
+}
 
 //Estructura del menu
 while (repetir) {
@@ -161,6 +200,7 @@ switch (menu) {
         contadorEjercicio5++
         break;
     case 6:
+        validarNotas()
         contadorEjercicio6++
         break;
     case 7:
