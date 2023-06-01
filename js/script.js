@@ -105,6 +105,34 @@ function numeroAmigo(numero1, numero2) {
     console.log(divisoresNumero1,divisoresNumero2,sumaDivisoresNumero1,sumaDivisoresNumero2);
 }
 
+//compras 
+function compras() {
+  let valor = Number(prompt("Ingrese el valor del producto"))
+  let cantidad = Number(prompt("Ingrese la cantidad de productos"))
+
+  let subTotal = valor * cantidad
+  let iva = subTotal * 0.19
+  let total = subTotal + iva
+
+  if (subTotal > 500000) {
+    total = subTotal
+    iva = 0
+    console.log("el valor del iva es",iva);
+    console.log("el valor de la compra es de: ", total) 
+  }
+  if (subTotal > 1000000) {
+    let descuento = total * 0.1;
+    total = subTotal - descuento;
+    console.log("el valor del iva es de",iva);
+    console.log("tienes un descuento del 10%, su valor a pagar es de: ",total);
+  }
+  else{
+    console.log("su iva es de: ",iva);
+    console.log("el valor de la compra es de: ",total);
+  }  
+}
+
+
 //Estructura del menu
 while (repetir) {
     const menu = Number(prompt("Ingrese la operacion a ejecutar:\n 1- Ordenar 3 numeros \n 2- Calcular area circunferencia \n 3- definir tipo de triangulo \n 4- encontrar numero amigo \n 5- encontrar valor de compra \n 6- calcular nota \n 7- salir"))
@@ -129,6 +157,7 @@ switch (menu) {
         contadorEjercicio4++
         break;
     case 5:
+        compras()
         contadorEjercicio5++
         break;
     case 6:
